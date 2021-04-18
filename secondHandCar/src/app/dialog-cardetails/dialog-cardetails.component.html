@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Car details</h2>
+<mat-dialog-content class="mat-typography">
+
+
+<table>
+    <tr>
+        <td><span><b> WareHouseId is :</b></span></td>
+        <td>{{data.carDetailForDialog.wareHouseId}}
+        </td>
+    </tr>
+    <tr>
+        <td><span><b> WareHouse is</b></span></td>
+        <td>{{data.carDetailForDialog.wareHouse}}
+        </td>
+    </tr>
+    <tr>
+            <td><span><b> Model is</b></span></td>
+            <td>{{data.carDetailForDialog.model}}
+            </td>
+    </tr>
+    <tr>
+            <td><span><b> Price is</b></span></td>
+            <td>{{data.carDetailForDialog.price}}
+            </td>
+    </tr>
+    <tr>
+            <td><span><b> Lattitude is</b></span></td>
+            <td>{{data.carDetailForDialog.latitude}}
+            </td>
+    </tr>
+    <tr>
+            <td><span><b> Longitude is</b></span></td>
+            <td>{{data.carDetailForDialog.longitude}}
+            </td>
+    </tr>
+</table>
+      
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
+</mat-dialog-actions>

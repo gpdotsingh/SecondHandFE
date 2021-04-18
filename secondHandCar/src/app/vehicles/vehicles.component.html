@@ -1,0 +1,77 @@
+
+<button mat-button (click)="showKart()">
+<div>
+    <mat-icon color="primary">shopping_cart</mat-icon>
+  </div>
+</button>
+
+<button mat-button (click)="emptyKart()">
+    <div>
+        <mat-icon color="primary">remove_shopping_cart</mat-icon>
+      </div>
+</button>
+
+<div *ngIf="dataSource">
+    <mat-table [dataSource]="dataSource.content">
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns" ></mat-row>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Click to see details</mat-header-cell>
+            <mat-cell *matCellDef="let row">             
+                <button mat-button (click)="openDialog(row.id)">
+                    <div *ngIf=row.licensed> 
+                        <mat-icon color="primary">details</mat-icon>
+                      </div>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="make">
+            <mat-header-cell *matHeaderCellDef>Make by</mat-header-cell>
+            <mat-cell *matCellDef="let row">             
+                    {{row.make}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="model">
+            <mat-header-cell *matHeaderCellDef >Model</mat-header-cell>
+            <mat-cell *matCellDef="let row">             
+                    {{row.model}}
+            </mat-cell>
+        </ng-container>
+
+   <ng-container matColumnDef="yearModel">
+            <mat-header-cell *matHeaderCellDef >Model Year</mat-header-cell>
+            <mat-cell *matCellDef="let row">             
+                    {{row.yearModel}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+            <mat-cell *matCellDef="let row">             
+                    {{row.price}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="addToCart">
+            <mat-header-cell *matHeaderCellDef>Add to cart</mat-header-cell>
+            <mat-cell  *matCellDef="let row"><button mat-raised-button (click)="addToCart(row.id)">
+                <div *ngIf=row.licensed> 
+                    <mat-icon color="primary">add_shopping_cart</mat-icon>
+                  </div>
+            </button>
+            </mat-cell>
+        </ng-container>
+    </mat-table>
+
+    <mat-paginator [length]="dataSource.totalElements"
+    [pageSize]="dataSource.size"
+    [pageSizeOptions]="[5,10,20]"
+    (page)="pageEvent = $event;onPageinateChange($event)">
+    </mat-paginator>
+
+</div>
+
+
+

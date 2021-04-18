@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Car models in your cart are</h2>
+<mat-dialog-content class="mat-typography">
+
+     <div *ngFor="let item of shoppingData.carDetailForDialog | keyvalue">        
+        <div class="table-responsive">
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th>
+                        <b>Car Id for your refernece</b>
+                      </th>
+                      <th>
+                        <b>Model</b>
+                      </th>
+                      <th>
+                        <b>Made by</b>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td> {{item.key}} </td>
+                      <td>{{(item.value|carDetaiils).model}}</td>
+                      <td>{{(item.value|carDetaiils).make}}</td>
+                    </tr>
+              </tbody>
+          </table>
+        </div>			 
+      </div>    
